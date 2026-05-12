@@ -12,13 +12,19 @@ Query economic and financial time-series data from [Macrobond](https://www.macro
 
 ## Installation
 
-### Option 1: Install from GitHub
+### Step 1: Add the marketplace
 
-```bash
-claude /plugins install mb-ne/claude-plugin
+```
+/plugin marketplace add mb-ne/claude-plugin
 ```
 
-### Option 2: Manual Clone
+### Step 2: Install the plugin
+
+```
+/plugin install macrobond@mb-ne-claude-plugin
+```
+
+### Alternative: Local install
 
 ```bash
 git clone https://github.com/mb-ne/claude-plugin.git

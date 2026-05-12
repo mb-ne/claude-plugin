@@ -1,0 +1,17 @@
+{
+  "name": "mb-ne-claude-plugin",
+  "description": "Macrobond economic data plugins for Claude Code",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Macrobond Financial AB",
+    "email": "support@macrobond.com"
+  },
+  "plugins": [
+    {
+      "name": "macrobond",
+      "description": "Search and retrieve economic time series data from Macrobond",
+      "version": "1.0.0",
+      "source": "."
+    }
+  ]
+}
