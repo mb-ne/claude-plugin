@@ -1,4 +1,4 @@
-# Macrobond Data Skill for Claude Code
+# Macrobond Plugin for Claude Code
 
 Query economic and financial time-series data from [Macrobond](https://www.macrobond.com/) directly in Claude Code.
 
@@ -8,31 +8,37 @@ Query economic and financial time-series data from [Macrobond](https://www.macro
 - **Fetch** time series with metadata and observations
 - **Revision history** — query point-in-time data, track how statistics were revised
 - **Cross-country sets** — build comparable datasets across regions
+- **MCP Server** — automatically configured when you install the plugin
 
 ## Installation
 
-1. **Clone this folder** into your project:
-   ```bash
-   git clone https://github.com/macrobond/macrobond-data-skill.git
-   cp -r macrobond-data-skill/claude/* your-project/
-   ```
+### Option 1: Install from GitHub
 
-2. **Add your credentials** to `.env`:
-   ```
-   MACROBOND_API_USER_ID=your_username
-   MACROBOND_API_PASSWORD=your_password
-   ```
+```bash
+claude /plugins install mb-ne/claude-plugin
+```
 
-3. **Install Python dependencies**:
-   ```bash
-   pip install requests python-dotenv
-   ```
+### Option 2: Manual Clone
 
-4. **The skill** loads automatically from `.claude/skills/macrobond/SKILL.md`
+```bash
+git clone https://github.com/mb-ne/claude-plugin.git
+claude --plugin-dir ./claude-plugin
+```
+
+## Configuration
+
+Set these environment variables before using the plugin:
+
+```bash
+export MACROBOND_MCP_URL=https://mcp.macrobond.com/sse
+export MACROBOND_API_KEY=your_api_key_here
+```
+
+Add them to your shell profile (`~/.bashrc`, `~/.zshrc`, etc.) to persist across sessions.
 
 ## Usage
 
-Invoke with: `/macrobond`
+Invoke with: `/macrobond:macrobond`
 
 Example queries:
 - "Get US CPI year-over-year data"
@@ -40,25 +46,27 @@ Example queries:
 - "Build a G7 inflation comparison"
 - "What was US GDP as known on 2020-01-01?"
 
-## File Structure
+## Plugin Structure
 
 ```
-your-project/
-├── .claude/skills/macrobond/SKILL.md           # Skill instructions
-├── macrobond_adapter_http.py       # API wrapper
-├── domain_knowledge.md             # Selection rules
-├── metadata_guide.md               # Filter values
-├── auth_and_runtime.md             # Auth details
-└── .env                            # Your credentials
+claude-plugin/
+├── .claude-plugin/
+│   └── plugin.json              # Plugin manifest
+├── .mcp.json                    # MCP server config
+├── skills/
+│   └── macrobond/
+│       ├── SKILL.md             # Skill instructions
+│       └── references/
+│           ├── domain_knowledge.md
+│           └── metadata_guide.md
+└── LICENCE
 ```
 
 ## Requirements
 
 - [Macrobond](https://www.macrobond.com/) account with API access
-- Macrobond Data+ license (for revision history)
-- Python 3.8+
-- `requests`, `python-dotenv` packages
+- Claude Code
 
 ## License
 
-MIT — see [LICENCE](LICENCE)
+Proprietary - Macrobond Financial AB — see [LICENCE](LICENCE)

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "macrobond": {
+      "type": "sse",
+      "url": "${MACROBOND_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${MACROBOND_API_KEY}"
+      }
+    }
+  }
+}

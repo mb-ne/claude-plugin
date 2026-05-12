@@ -1,0 +1,12 @@
+{
+  "name": "macrobond",
+  "description": "Search and retrieve economic time series data from Macrobond. Get CPI, GDP, unemployment, inflation, yield curves, FX rates, and other macroeconomic indicators.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Macrobond Financial AB",
+    "email": "support@macrobond.com"
+  },
+  "license": "Proprietary",
+  "homepage": "https://www.macrobond.com",
+  "keywords": ["macrobond", "economic-data", "time-series", "macro", "finance"]
+}
